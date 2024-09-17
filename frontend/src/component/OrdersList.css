@@ -1,0 +1,82 @@
+
+
+.containaer-OrderList {
+    font-family: "Cairo", system-ui !important;
+    padding: 70px 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.card-OrderList {
+    width: 100%;
+    background-color: rgb(255, 255, 255 , .2);
+    box-shadow: 5px 5px 20px  rgba(0, 0, 0, 0.1);
+    padding: 15px 5px;
+    border: solid #1e6a9b 1px;
+    border-radius: 8px;
+}
+
+ul {
+    list-style-type: none; /* Removes bullets */
+    padding: 0;            /* Removes default padding */
+    margin: 0;             /* Removes default margin */
+  }
+
+  .delete-button {
+    width: 90%;
+  }
+  
+  .Name {
+    color: #1e6a9b;
+  }
+
+  .con-totall {
+    width: 100%;
+    display: grid;
+    place-items: center;
+  }
+
+  .totall {
+    border: 1px solid #1e6a9b;
+    border-radius: 8px;
+    padding: 10px;
+    width: 80%;
+
+  }
+
+  .con-call-to-action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .included {
+    font-size: 12px;
+  }
+  .order-total {
+    font-size: 18px;
+    color: red;
+  }
+
+  @media (max-width:767px) {
+    .totall {
+        width: 95%;
+    }
+    .delete-button {
+       height: 44px;
+    }
+    
+  .btn-call-to-action {
+    margin-top: 27px;
+    height: 43px;
+    width: 145px;
+    font-size: 13px;
+  }
+  }
+
