@@ -22,13 +22,16 @@ const menuItems = [
   { id: 6, name: "فول سجق", description: "بلدى", price: 20 },
   { id: 7, name: "طعمية", description: "شامى", price: 9 },
   { id: 8, name: "طعمية", description: "بلدى", price: 9 },
-  { id: 9, name: "Salad", description: "Fresh green salad", price: 6 },
-  { id: 10, name: "Salad", description: "Fresh green salad", price: 6 },
-  { id: 11, name: "Salad", description: "Fresh green salad", price: 6 },
-  { id: 12, name: "Salad", description: "Fresh green salad", price: 6 },
-  { id: 13, name: "Salad", description: "Fresh green salad", price: 6 },
-  { id: 14, name: "Salad", description: "Fresh green salad", price: 6 },
-  { id: 15, name: "Salad", description: "Fresh green salad", price: 6 },
+  { id: 9, name: "صوابع", description: "كاتشب و مايونيز بلدى ", price: 15 },
+  { id: 10, name: "صوابع", description: "كاتشب و مايونيز شامى ", price: 15 },
+  { id: 11, name: "صوابع", description: "شامى", price: 13 },
+  { id: 12, name: "صوابع", description: "بلدى", price: 13 },
+  { id: 13, name: "شيبسى", description: "شامى", price: 12 },
+  { id: 14, name: "شيبسى", description: "بلدى", price: 12 },
+  { id: 15, name: "مهروسة", description: "شامى", price: 12 },
+  { id: 15, name: "مهروسة", description: "بلدى", price: 12 },
+  { id: 15, name: "مسقعة", description: "شامى", price: 12 },
+  { id: 15, name: "مسقعة", description: "بلدى", price: 12 },
   // Add more items if needed
 ];
 
