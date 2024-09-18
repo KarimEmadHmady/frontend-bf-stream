@@ -5,13 +5,13 @@ export default defineConfig({
   plugins: [react()],
   root: 'src',
   build: {
-    outDir: '../dist', // Output directory for built files
-    assetsDir: 'assets',
+    outDir: '../dist',
     rollupOptions: {
       input: {
-        main: 'src/main.jsx', // Entry point for your app
+        main: 'src/main.jsx',
       },
     },
-    base: '/', // Base URL for the deployment
+    assetsDir: 'assets',
+    base: '/',
   },
 });
