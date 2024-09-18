@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import  { useEffect } from 'react';
 import { SignedIn, SignedOut, SignInButton, UserButton, useClerk } from '@clerk/clerk-react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import { background, image, header } from '../src/assets/image.js';
+import { background, image, header } from './assets/image.js';
 import './App.css';
 
 export default function App() {
@@ -23,7 +23,7 @@ export default function App() {
       </div>
       <header className='sing-in-containaer'>
         <SignedOut >
-          <SignInButton className='image-divaaaaaaaaaaaaaa'/>
+          <SignInButton />
         </SignedOut>
         <SignedIn>
           <UserButton />
