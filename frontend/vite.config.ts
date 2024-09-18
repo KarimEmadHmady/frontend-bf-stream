@@ -11,5 +11,7 @@ export default defineConfig({
         main: 'src/main.jsx', // Ensure this path is correct
       },
     },
+    assetsDir: 'assets',
+    base: '/', // Ensure this is correct for your deployment context
   },
 });
