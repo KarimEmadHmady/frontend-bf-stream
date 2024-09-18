@@ -3,15 +3,15 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  root: 'src', // Adjust this if necessary
+  root: 'src',
   build: {
-    outDir: '../dist', // Adjust if your output directory should be different
+    outDir: '../dist', // Ensure this is correct
+    assetsDir: 'assets',
     rollupOptions: {
       input: {
-        main: 'src/main.jsx', // Ensure this path is correct
+        main: 'src/main.jsx', // Path to your entry file
       },
     },
-    assetsDir: 'assets',
-    base: '/', // Ensure this is correct for your deployment context
+    base: '/', // This should be correct for deployment
   },
 });
