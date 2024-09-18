@@ -13,7 +13,6 @@ if (!PUBLISHABLE_KEY) {
   throw new Error('Missing Publishable Key');
 }
 
-// Handle possible null value safely
 const rootElement = document.getElementById('root');
 if (!rootElement) {
   throw new Error('Root element not found');
