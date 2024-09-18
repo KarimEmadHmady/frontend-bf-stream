@@ -25,12 +25,10 @@ app.use(cookieParser()); // Parses cookies sent in requests
 //   .then(() => console.log('MongoDB connected successfully'))
 //   .catch(err => console.error('MongoDB connection error:', err));
 
-mongoose.connect(MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log('MongoDB connected successfully'))
-.catch(err => console.error('MongoDB connection error:', err));
+mongoose.connect(MONGO_URI)
+  .then(() => console.log('MongoDB connected successfully'))
+  .catch(err => console.error('MongoDB connection error:', err));
+
 
 // Use the routes
 app.use('/api/orders', orderRoutes); // Register the order routes
