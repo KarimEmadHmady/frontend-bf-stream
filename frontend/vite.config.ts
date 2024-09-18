@@ -5,13 +5,13 @@ export default defineConfig({
   plugins: [react()],
   root: 'src',
   build: {
-    outDir: '../dist', // Ensure this matches your Netlify publish directory
+    outDir: '../dist', // Output directory for built files
     assetsDir: 'assets',
     rollupOptions: {
       input: {
-        main: 'src/main.jsx',
+        main: 'src/main.jsx', // Entry point for your app
       },
     },
-    base: '/', // Ensure this is correct for your deployment context
+    base: '/', // Base URL for the deployment
   },
 });
