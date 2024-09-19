@@ -16,7 +16,7 @@ function OrdersList() {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/orders');
+        const response = await axios.get('https://bf-stream.vercel.app/api/orders');
         console.log(response.data); // Log the data to check if comments are included
         setOrders(response.data);
         toast.success('Orders fetched successfully!');
