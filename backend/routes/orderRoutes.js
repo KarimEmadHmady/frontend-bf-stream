@@ -37,16 +37,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-// Fetch all orders
-// router.get('/', async (req, res) => {
-//     try {
-//         const orders = await Order.find(); // Fetch all orders from the database
-//         res.status(200).json(orders);
-//     } catch (error) {
-//         console.error('Error fetching orders:', error);
-//         res.status(500).json({ message: 'Error fetching orders' });
-//     }
-// });
+
 
 
 router.get('/', async (req, res) => {
@@ -103,6 +94,7 @@ router.delete('/:id', async (req, res) => {
     }
   });
   
+
   
 
 

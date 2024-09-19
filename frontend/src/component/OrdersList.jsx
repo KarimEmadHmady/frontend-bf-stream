@@ -13,6 +13,7 @@ function OrdersList() {
   const [loadingOrders, setLoadingOrders] = useState(true);
   const { user, isLoaded } = useUser(); // Use Clerk's useUser hook
 
+
   useEffect(() => {
     const fetchOrders = async () => {
       try {
@@ -41,7 +42,7 @@ function OrdersList() {
 
     try {
       if (user?.emailAddresses[0]?.emailAddress === customerEmail) {
-        await axios.delete(`http://localhost:5000/api/orders/${id}`, {
+        await axios.delete(`https://bf-stream.vercel.app/api/orders/${id}`, {
           data: { email: user.emailAddresses[0]?.emailAddress }, // Send user email with the delete request
         });
         setOrders(orders.filter(order => order._id !== id));
@@ -160,3 +161,5 @@ function OrdersList() {
 }
 
 export default OrdersList;
+
+

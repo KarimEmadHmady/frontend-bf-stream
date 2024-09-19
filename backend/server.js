@@ -17,8 +17,20 @@ const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI;
 
 // Middleware
+// Add CORS configuration here
+const corsOptions = {
+  origin: ['http://localhost:5173', 'https://bf-stream.vercel.app'], // Frontend origins
+  methods: ['GET', 'POST', 'DELETE', 'PUT'], // Allowed HTTP methods
+  credentials: true, // Allows cookies or credentials to be included in requests
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers in the request
+};
+
+app.use(cors(corsOptions)); // Apply CORS options globally
+
+
+
 app.use(express.json()); // Parses incoming JSON requests
-app.use(cors()); // Allows cross-origin requests
+// app.use(cors()); // Allows cross-origin requests
 app.use(cookieParser()); // Parses cookies sent in requests
 
 // Connect to MongoDB
