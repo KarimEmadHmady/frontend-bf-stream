@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const dotenv = require('dotenv');
 const orderRoutes = require('./routes/orderRoutes'); // Import your order routes
 const Order = require('./models/Order'); // Adjust the path as necessary
+const userRoutes = require('./routes/userRoutes');
 const cron = require('node-cron');
 
 
@@ -32,6 +33,7 @@ mongoose.connect(MONGO_URI)
 
 // Use the routes
 app.use('/api/orders', orderRoutes); // Register the order routes
+
 
 
 // Function to delete orders older than 20 hours
@@ -62,3 +64,4 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+

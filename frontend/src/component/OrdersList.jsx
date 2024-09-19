@@ -16,7 +16,7 @@ function OrdersList() {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get('https://bf-stream.vercel.app/api/orders');
+        const response = await axios.get('http://localhost:5000/api/orders');
         console.log(response.data); // Log the data to check if comments are included
         setOrders(response.data);
         toast.success('Orders fetched successfully!');
@@ -41,7 +41,7 @@ function OrdersList() {
 
     try {
       if (user?.emailAddresses[0]?.emailAddress === customerEmail) {
-        await axios.delete(`https://bf-stream.vercel.app/api/orders/${id}`, {
+        await axios.delete(`http://localhost:5000/api/orders/${id}`, {
           data: { email: user.emailAddresses[0]?.emailAddress }, // Send user email with the delete request
         });
         setOrders(orders.filter(order => order._id !== id));
