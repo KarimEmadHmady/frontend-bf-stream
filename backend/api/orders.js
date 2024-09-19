@@ -43,6 +43,12 @@ app.get('/', (req, res) => {
   res.send('Backend is running...');
 });
 
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ error: 'Something went wrong!' });
+});
+
 // Export the app as a serverless function
 
 module.exports = app;
