@@ -57,7 +57,7 @@ cron.schedule('0 */20 * * *', () => {
 
 // Sample Route
 app.get('/', (req, res) => {
-  res.send('Backend is running...');
+  res.send('Backend is running.....');
 });
 
 // Start the server
