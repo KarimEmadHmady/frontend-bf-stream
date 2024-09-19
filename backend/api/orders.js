@@ -6,6 +6,7 @@ const dotenv = require('dotenv');
 const orderRoutes = require('../routes/orderRoutes'); // Adjust the path as necessary
 const Order = require('../models/Order'); // Adjust the path as necessary
 const cron = require('node-cron');
+const app = require('../server'); // Adjust the path
 
 dotenv.config();
 
@@ -43,4 +44,5 @@ app.get('/', (req, res) => {
 });
 
 // Export the app as a serverless function
+
 module.exports = app;
