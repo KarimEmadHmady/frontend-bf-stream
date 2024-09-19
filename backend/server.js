@@ -19,7 +19,7 @@ const MONGO_URI = process.env.MONGO_URI;
 // Middleware
 // Add CORS configuration here
 const corsOptions = {
-  origin: ['http://localhost:5173', 'https://bf-stream.vercel.app'], // Frontend origins
+  origin: ['http://localhost:5173', 'https://bf-stream.vercel.app' , 'https://bf-stream.vercel.app/api/orders'], // Frontend origins
   methods: ['GET', 'POST', 'DELETE', 'PUT'], // Allowed HTTP methods
   credentials: true, // Allows cookies or credentials to be included in requests
   allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers in the request
@@ -27,6 +27,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions)); // Apply CORS options globally
 
+app.options('*', cors(corsOptions)); // Enable preflight for all routes
 
 
 app.use(express.json()); // Parses incoming JSON requests
@@ -73,8 +74,8 @@ app.get('/', (req, res) => {
 });
 
 // Start the server
-// app.listen(PORT, () => {
-//   console.log(`Server is running on port ${PORT}`);
-// });
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
 
 module.exports = app;
