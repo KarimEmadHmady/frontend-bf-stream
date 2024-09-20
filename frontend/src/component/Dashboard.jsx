@@ -29,9 +29,9 @@ const menuItems = [
   { id: 13, name: "شيبسى", description: "شامى", price: 12 },
   { id: 14, name: "شيبسى", description: "بلدى", price: 12 },
   { id: 15, name: "مهروسة", description: "شامى", price: 12 },
-  { id: 15, name: "مهروسة", description: "بلدى", price: 12 },
-  { id: 15, name: "مسقعة", description: "شامى", price: 12 },
-  { id: 15, name: "مسقعة", description: "بلدى", price: 12 },
+  { id: 16, name: "مهروسة", description: "بلدى", price: 12 },
+  { id: 17, name: "مسقعة", description: "شامى", price: 12 },
+  { id: 18, name: "مسقعة", description: "بلدى", price: 12 },
   // Add more items if needed
 ];
 
