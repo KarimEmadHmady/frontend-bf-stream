@@ -27,29 +27,29 @@ const MONGO_URI = process.env.MONGO_URI;
 
 
 
-app.use(cors({
-    origin: [
-        'https://bf-stream-karimemadhmady-bfs-projects-3cb62484.vercel.app', 
-        'https://breakfast-stream.netlify.app'
-    ],
-    methods: ['GET', 'POST', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization/json'],
-}));
+// app.use(cors({
+//     origin: [
+//         'https://bf-stream-karimemadhmady-bfs-projects-3cb62484.vercel.app', 
+//         'https://breakfast-stream.netlify.app'
+//     ],
+//     methods: ['GET', 'POST', 'DELETE'],
+//     allowedHeaders: ['Content-Type', 'Authorization/json'],
+// }));
 
-app.options('*', cors()); // Enable preflight for all routes
+// app.options('*', cors()); // Enable preflight for all routes
 
 
 
-// app.use(cors(corsOptions)); // Apply CORS options globally
+// // app.use(cors(corsOptions)); // Apply CORS options globally
 
-// app.options('*', cors(corsOptions)); // Enable preflight for all routes
+// // app.options('*', cors(corsOptions)); // Enable preflight for all routes
 
 
 
 
 
 app.use(express.json()); // Parses incoming JSON requests
-// app.use(cors()); // Allows cross-origin requests
+app.use(cors()); // Allows cross-origin requests
 app.use(cookieParser()); // Parses cookies sent in requests
 
 // Connect to MongoDB
