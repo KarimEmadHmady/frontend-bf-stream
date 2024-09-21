@@ -48,7 +48,7 @@
 
   top: -50%;
   left: 50%;
-  transform: translate(5%, 55%);
+  transform: translate(5%, 99%);
   
 }
 
@@ -129,8 +129,8 @@ header {
 
 .sing-in-containaer{
   position: absolute;
-
-  top: 18%;
+  height: 0;
+  top: 22%;
   left: 50%;
   transform: translate(-50% , -50%);
 }
