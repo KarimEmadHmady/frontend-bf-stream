@@ -34,28 +34,6 @@ function OrdersList() {
   }, []);
   
 
-  // const handleDelete = async (id, customerEmail) => {
-  //   if (!isLoaded) {
-  //     toast.info("User is not loaded yet. Please wait."); // Show info toast
-  //     return;
-  //   }
-
-  //   try {
-  //     if (user?.emailAddresses[0]?.emailAddress === customerEmail) {
-  //       await axios.delete(`https://bf-stream.vercel.app/api/orders/${id}`, {
-  //         data: { email: user.emailAddresses[0]?.emailAddress }, // Send user email with the delete request
-  //       });
-  //       setOrders(orders.filter(order => order._id !== id));
-  //       toast.success('Order deleted successfully!'); // Show success toast
-  //     } else {
-  //       toast.error('You can only delete your own orders.'); // Show error toast
-  //     }
-  //   } catch (error) {
-  //     console.error('Error deleting order:', error);
-  //     toast.error('Error deleting order.'); // Show error toast
-  //   }
-  // };
-
   const handleDelete = async (id, customerEmail) => {
     if (!isLoaded) {
       toast.info("User is not loaded yet. Please wait."); // Show info toast

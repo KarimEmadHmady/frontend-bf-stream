@@ -43,16 +43,18 @@ margin: 15px;
 
 
   /* From Uiverse.io by Lucaasbre */ 
-.input-group {
+  .input-group {
     display: flex;
+    left: 50%;
+    transform: translate(-50%, -50%);
     align-items: center;
     gap: 10px;
     position: relative;
     padding: 7px 0 0;
     width: 50%;
-    margin-bottom: 10px;
-    margin-top: 2px;
-  }
+    margin-bottom: -365px;
+    margin-top: 72px;
+}
   
   .input-text {
     font-family: inherit;
@@ -139,6 +141,8 @@ margin: 15px;
     }
     .input-group {
         width: 90%;
+        margin-bottom: -384px;
+        margin-top: 72px;
       }
 }
 
