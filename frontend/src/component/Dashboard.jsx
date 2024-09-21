@@ -113,7 +113,7 @@ function Dashboard() {
 
       <img src={header} className="header-image" alt="Header" />
 
-      <h1>Good Morning</h1>
+      <h1>Menu</h1>
       <div className="containaer-dashboard">
         {menuItems.map((item) => (
           <div key={item.id} className="containaer-card">
@@ -136,7 +136,7 @@ function Dashboard() {
       {order.map((item, index) => (
         <div key={index}>
           <p>
-            {item.name} - {item.quantity} x {item.price} LE
+            {item.name } {item.description} - {item.quantity} x {item.price} LE
           </p>
         </div>
       ))}
