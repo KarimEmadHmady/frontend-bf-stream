@@ -143,7 +143,8 @@ function Dashboard() {
       {/* Display the user's name in the order header */}
       <h2>{user ? `Order ${user.firstName}` : "Current Order"}:</h2>
       <h3>Total Price: {total} LE</h3>
-
+      <div className="conta-btn-cta">
+        
       <button className="button-card" onClick={submitOrder}>
         Place Order
       </button>
@@ -151,6 +152,7 @@ function Dashboard() {
       <Link to="/OrdersList" className="view-order">
         <button className="button-card">View Orders List</button>
       </Link>
+      </div>
 
       <div className="footer">
        
