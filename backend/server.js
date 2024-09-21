@@ -28,10 +28,14 @@ const MONGO_URI = process.env.MONGO_URI;
 
 
 app.use(cors({
-    origin: 'https://bf-stream-karimemadhmady-bfs-projects-3cb62484.vercel.app', // Your frontend URL
-    methods: ['GET', 'POST', 'DELETE'], // Allow necessary methods
-    allowedHeaders: ['Content-Type', 'Authorization'], // Add any headers you might use
+    origin: [
+        'https://bf-stream-karimemadhmady-bfs-projects-3cb62484.vercel.app', 
+        'https://breakfast-stream.netlify.app'
+    ],
+    methods: ['GET', 'POST', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
 }));
+
 app.options('*', cors()); // Enable preflight for all routes
 
 
