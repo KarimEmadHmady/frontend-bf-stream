@@ -16,14 +16,25 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI;
 
-// Middleware
-// Add CORS configuration here
-const corsOptions = {
-  origin: ['https://bf-stream-karimemadhmady-bfs-projects-3cb62484.vercel.app'], // Frontend origins
-  methods: ['GET', 'POST', 'DELETE', 'PUT'], // Allowed HTTP methods
-  credentials: true, // Allows cookies or credentials to be included in requests
-  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers in the request
-};
+// // Middleware
+// // Add CORS configuration here
+// const corsOptions = {
+//   origin: ['https://bf-stream-karimemadhmady-bfs-projects-3cb62484.vercel.app'], // Frontend origins
+//   methods: ['GET', 'POST', 'DELETE', 'PUT'], // Allowed HTTP methods
+//   credentials: true, // Allows cookies or credentials to be included in requests
+//   allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers in the request
+// };
+
+
+
+app.use(cors({
+    origin: 'https://bf-stream-karimemadhmady-bfs-projects-3cb62484.vercel.app', // Your frontend URL
+    methods: ['GET', 'POST', 'DELETE'], // Allow necessary methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Add any headers you might use
+}));
+app.options('*', cors()); // Enable preflight for all routes
+
+
 
 // app.use(cors(corsOptions)); // Apply CORS options globally
 
