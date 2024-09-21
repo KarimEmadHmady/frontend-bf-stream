@@ -33,7 +33,7 @@ app.use(cors({
         'https://breakfast-stream.netlify.app'
     ],
     methods: ['GET', 'POST', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    allowedHeaders: ['Content-Type', 'Authorization/json'],
 }));
 
 app.options('*', cors()); // Enable preflight for all routes
