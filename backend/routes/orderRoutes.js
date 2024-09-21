@@ -97,7 +97,7 @@ const checkOrderOwnership = async (req, res, next) => {
 
 // Delete an order
 // DELETE order route
-router.delete('/api/orders/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const order = await Order.findById(req.params.id);
     if (!order) {
