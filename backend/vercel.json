@@ -1,6 +1,7 @@
 {
+
   "routes": [
-    { "src": "/", "dest": "/" },
-    { "src": "/api/orders", "dest": "/" }
+    { "src": "/(.*)", "dest": "/server.js" },
+    { "src": "/api/orders/(.*)", "dest": "/api/orders" }
   ]
 }
