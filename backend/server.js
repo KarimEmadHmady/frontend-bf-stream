@@ -84,6 +84,10 @@ app.use('/api/orders', orderRoutes); // Register the order routes
 //   deleteOldOrders();
 // });
 
+app.use((req, res, next) => {
+    console.log(`Received request for: ${req.originalUrl}`);
+    next();
+});
 
 
 // Sample Route
