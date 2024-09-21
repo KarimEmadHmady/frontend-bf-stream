@@ -128,8 +128,6 @@ header {
 }
 
 .sing-in-containaer{
-  position: absolute;
-  height: 0;
   top: 22%;
   left: 50%;
   transform: translate(-50% , -50%);
@@ -143,13 +141,13 @@ header {
     top: 30px;
     right: 40px;
   }
-  .sing-in-containaer{
+/*   .sing-in-containaer{
     position: absolute;
 
     bottom: 30%;
     left: 50%;
     transform: translate(-50% , -50%);
-  }
+  } */
 }
 
 
