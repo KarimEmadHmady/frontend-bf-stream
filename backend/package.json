@@ -7,6 +7,9 @@
     "build": "vite build"
   },
   "keywords": [],
+  "engines": {
+    "node": "v20.17.0"
+  },
   "author": "",
   "license": "ISC",
   "description": "",
