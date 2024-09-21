@@ -10,6 +10,8 @@ import {
   UserButton,
   useUser, // Import the useUser hook
 } from "@clerk/clerk-react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartPlus ,faCheck, faListAlt } from '@fortawesome/free-solid-svg-icons';
 import { background, header } from "../assets/image.js";
 import { Link } from "react-router-dom"; // Import Link
 
@@ -122,12 +124,14 @@ function Dashboard() {
             <p>
               {item.price} <span>LE</span>
             </p>
+
             <button
               className="button-card"
               onClick={() => addItemToOrder(item)}
             >
-              Add to Order
+             <FontAwesomeIcon icon={faCartPlus} /> Add to Order
             </button>
+
             {/* Display counter for each item */}
             {itemCount[item.id] > 0 && <p>Added: {itemCount[item.id]} times</p>}
           </div>
@@ -145,13 +149,16 @@ function Dashboard() {
       <h3>Total Price: {total} LE</h3>
       <div className="conta-btn-cta">
         
-      <button className="button-card" onClick={submitOrder}>
-        Place Order
-      </button>
+        <button className="button-card" onClick={submitOrder}>
+          <FontAwesomeIcon icon={faCheck} /> Place Order
+        </button>
 
-      <Link to="/OrdersList" className="view-order">
-        <button className="button-card">View Orders List</button>
-      </Link>
+        <Link to="/OrdersList" className="view-order">
+          <button className="button-card">
+            <FontAwesomeIcon icon={faListAlt} /> View Orders List
+          </button>
+        </Link>
+
       </div>
 
       <div className="footer">

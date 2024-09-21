@@ -14,7 +14,7 @@ margin: 15px;
     border: none;
 }
 .containaer-card {
-    border: solid 1px #1e6a9b ;
+    
     background-color: #fff;
     padding: 5px;
     box-shadow: 5px 10px 15px  rgba(0, 0, 0, 0.1);
@@ -64,7 +64,7 @@ margin: 15px;
     border-radius: 0 !important;
     outline: 0;
     font-size: 17px;
-    color: #ffff;
+    color: #000;
     padding: 7px 0;
     background: transparent;
     transition: border-color 0.2s;
@@ -77,6 +77,7 @@ margin: 15px;
   .input-text:placeholder-shown ~ .input-text-label {
     font-size: 17px;
     cursor: text;
+    
   }
   
   .input-text-label {
@@ -86,6 +87,9 @@ margin: 15px;
     font-size: 17px;
     color: #fff;
     pointer-events: none;
+  }
+  .input-text-label:focus {
+    color: black;
   }
   
   .input-text:focus {
