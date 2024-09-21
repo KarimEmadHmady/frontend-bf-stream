@@ -132,7 +132,11 @@ header {
   left: 50%;
   transform: translate(-50% , -50%);
 }
-
+@media (max-width:371px) {
+  .sing-in-containaer{
+    left: 44%;
+  }
+}
 
 @media (max-width:767px) {
   header {
@@ -141,13 +145,7 @@ header {
     top: 30px;
     right: 40px;
   }
-/*   .sing-in-containaer{
-    position: absolute;
 
-    bottom: 30%;
-    left: 50%;
-    transform: translate(-50% , -50%);
-  } */
 }
 
 
