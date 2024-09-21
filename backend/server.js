@@ -28,10 +28,16 @@ const MONGO_URI = process.env.MONGO_URI;
 // app.use(cors(corsOptions)); // Apply CORS options globally
 
 // app.options('*', cors(corsOptions)); // Enable preflight for all routes
+const cors = require('cors');
+
+app.use(cors({
+    origin: 'https://bf-stream.vercel.app', // Use your frontend URL here
+    methods: ['GET', 'POST', 'DELETE'], // Allow necessary methods
+}));
 
 
 app.use(express.json()); // Parses incoming JSON requests
-app.use(cors()); // Allows cross-origin requests
+//app.use(cors()); // Allows cross-origin requests
 app.use(cookieParser()); // Parses cookies sent in requests
 
 // Connect to MongoDB
