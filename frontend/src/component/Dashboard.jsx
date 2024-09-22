@@ -34,6 +34,8 @@ const menuItems = [
   { id: 16, name: "مهروسة", description: "بلدى", price: 12 },
   { id: 17, name: "مسقعة", description: "شامى", price: 12 },
   { id: 18, name: "مسقعة", description: "بلدى", price: 12 },
+  { id: 19, name: "جبنة", description: "شامى", price: 12 },
+  { id: 20, name: "جبنة", description: "بلدى", price: 12 },
   // Add more items if needed
 ];
 
