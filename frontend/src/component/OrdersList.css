@@ -82,3 +82,14 @@ ul {
   }
   }
 
+
+  .btn-call-to-action {
+    /* Existing styles */
+    transition: background-color 0.3s;
+  }
+  
+  .btn-call-to-action.disabled {
+    background-color: grey; /* Change to your desired disabled color */
+    cursor: not-allowed;
+  }
+  
