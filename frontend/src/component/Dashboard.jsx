@@ -139,6 +139,8 @@ function Dashboard() {
           </div>
         ))}
       </div>
+      <h2>{user ? `Order ${user.firstName}` : "Current Order"}:</h2>
+      <h3>Total Price : {total} LE</h3>
       {order.map((item, index) => (
         <div key={index}>
           <p>
@@ -146,9 +148,9 @@ function Dashboard() {
           </p>
         </div>
       ))}
-      {/* Display the user's name in the order header */}
-      <h2>{user ? `Order ${user.firstName}` : "Current Order"}:</h2>
-      <h3>Total Price: {total} LE</h3>
+      
+     
+
       <div className="conta-btn-cta">
         
         <button className="button-card" onClick={submitOrder}>
