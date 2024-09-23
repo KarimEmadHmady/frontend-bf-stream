@@ -129,12 +129,7 @@ function OrdersList() {
         </Link>
         <div>
           <a href="tel:+201140655659" className="call-button">
-            <button
-              className={`btn-call-to-action ${isButtonDisabled ? 'disabled' : ''}`}
-              onClick={isButtonDisabled ? null : handleOrderRestaurant}
-              disabled={isButtonDisabled}
-            >
-              <FontAwesomeIcon icon={faPhone} /> Order The Restaurant
+            <button ><FontAwesomeIcon icon={faPhone} /> Order The Restaurant
             </button>
           </a>
         </div>
