@@ -56,21 +56,6 @@ function OrdersList() {
     }
   };
 
-  const handleOrderRestaurant = async () => {
-    setButtonDisabled(true);
-    const disableTime = new Date(Date.now() + 10 * 60 * 60 * 1000); // 10 hours
-    localStorage.setItem('buttonDisabledUntil', disableTime);
-  
-    try {
-      await axios.post('https://backend-bf-stream.vercel.app/api/order-restaurant', {
-        userId: user.id  // Assuming you're using Clerk for user authentication
-      });
-      toast.success('Order has been placed and saved! You cannot order again for 10 hours.');
-    } catch (error) {
-      toast.error('Error placing the order.');
-    }
-  };
-  
 
   if (!isLoaded || loadingOrders) {
     return <p>Loading data, please wait...</p>;
@@ -149,7 +134,7 @@ function OrdersList() {
               onClick={isButtonDisabled ? null : handleOrderRestaurant}
               disabled={isButtonDisabled}
             >
-              <FontAwesomeIcon icon={faPhone} /> {isButtonDisabled ? "Ordered! Please wait." : "Order The Restaurant"}
+              <FontAwesomeIcon icon={faPhone} /> Order The Restaurant
             </button>
           </a>
         </div>
