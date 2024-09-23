@@ -13,7 +13,7 @@ function OrdersList() {
   const [orders, setOrders] = useState([]);
   const [error, setError] = useState(null);
   const [loadingOrders, setLoadingOrders] = useState(true);
-  const [isButtonDisabled, setButtonDisabled] = useState(false);
+  
   const { user, isLoaded } = useUser(); 
 
   useEffect(() => {
@@ -30,11 +30,6 @@ function OrdersList() {
     };
 
     fetchOrders();
-    
-    const buttonDisabledUntil = localStorage.getItem('buttonDisabledUntil');
-    if (buttonDisabledUntil && new Date(buttonDisabledUntil) > new Date()) {
-      setButtonDisabled(true);
-    }
   }, []);
 
   const handleDelete = async (id, customerEmail) => {
@@ -133,6 +128,20 @@ function OrdersList() {
             </button>
           </a>
         </div>
+        <div className="checkbox-wrapper-10">
+        <input 
+          type="checkbox" 
+          id="cb5" 
+          className="tgl tgl-flip" 
+          defaultChecked 
+        />
+        <label 
+          htmlFor="cb5" 
+          data-tg-on="NoT call" 
+          data-tg-off="call " 
+          className="tgl-btn"
+        ></label>
+      </div>
       </div>
 
       <div className="footer">
@@ -144,3 +153,4 @@ function OrdersList() {
 }
 
 export default OrdersList;
+
