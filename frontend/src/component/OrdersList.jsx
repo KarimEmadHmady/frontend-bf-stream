@@ -19,7 +19,7 @@ function OrdersList() {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/orders');
+        const response = await axios.get('https://backend-bf-stream.vercel.app/api/orders');
         setOrders(response.data);
       } catch (error) {
         setError('Failed to fetch orders');
@@ -45,7 +45,7 @@ function OrdersList() {
 
     try {
       if (user?.emailAddresses[0]?.emailAddress === customerEmail) {
-        await axios.delete(`http://localhost:5000/api/orders/${id}?email=${user.emailAddresses[0]?.emailAddress}`);
+        await axios.delete(`https://backend-bf-stream.vercel.app/api/orders/${id}?email=${user.emailAddresses[0]?.emailAddress}`);
         setOrders(orders.filter(order => order._id !== id));
         toast.success('Order deleted successfully!');
       } else {
@@ -62,7 +62,7 @@ function OrdersList() {
     localStorage.setItem('buttonDisabledUntil', disableTime);
   
     try {
-      await axios.post('http://localhost:5000/api/order-restaurant', {
+      await axios.post('https://backend-bf-stream.vercel.app/api/order-restaurant', {
         userId: user.id  // Assuming you're using Clerk for user authentication
       });
       toast.success('Order has been placed and saved! You cannot order again for 10 hours.');
