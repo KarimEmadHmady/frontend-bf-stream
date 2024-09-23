@@ -140,7 +140,7 @@ function Dashboard() {
         ))}
       </div>
       <h2>{user ? `Order ${user.firstName}` : "Current Order"}:</h2>
-      <h3>Total Price : {total} LE</h3>
+      
       {order.map((item, index) => (
         <div key={index}>
           <p>
@@ -148,6 +148,8 @@ function Dashboard() {
           </p>
         </div>
       ))}
+      <br />
+      <h3>Total Price : {total} LE</h3>
       
      
 
