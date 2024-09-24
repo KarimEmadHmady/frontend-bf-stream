@@ -171,8 +171,8 @@ function OrdersList() {
                 />
                 <label
                   htmlFor="cb5"
-                  data-tg-on="NoT call"
-                  data-tg-off="call "
+                  data-tg-on="NotCall"
+                  data-tg-off="called"
                   className="tgl-btn"
                 ></label>
               </div>
