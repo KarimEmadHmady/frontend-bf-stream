@@ -1,29 +1,41 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
-import { SignedIn, SignedOut, SignInButton, UserButton, useUser } from "@clerk/clerk-react";
-import './OrdersList.css';
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+  useUser,
+} from "@clerk/clerk-react";
+import "./OrdersList.css";
 import { background, header } from "../assets/image.js";
-import { ToastContainer, toast } from 'react-toastify'; 
-import 'react-toastify/dist/ReactToastify.css'; 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash, faArrowLeft, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTrash,
+  faArrowLeft,
+  faPhone,
+} from "@fortawesome/free-solid-svg-icons";
 
 function OrdersList() {
   const [orders, setOrders] = useState([]);
   const [error, setError] = useState(null);
   const [loadingOrders, setLoadingOrders] = useState(true);
-  
-  const { user, isLoaded } = useUser(); 
+
+  const { user, isLoaded } = useUser();
 
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get('https://backend-bf-stream.vercel.app/api/orders');
+        const response = await axios.get(
+          "https://backend-bf-stream.vercel.app/api/orders"
+        );
         setOrders(response.data);
       } catch (error) {
-        setError('Failed to fetch orders');
-        toast.error('Failed to fetch orders.');
+        setError("Failed to fetch orders");
+        toast.error("Failed to fetch orders.");
       } finally {
         setLoadingOrders(false);
       }
@@ -40,17 +52,18 @@ function OrdersList() {
 
     try {
       if (user?.emailAddresses[0]?.emailAddress === customerEmail) {
-        await axios.delete(`https://backend-bf-stream.vercel.app/api/orders/${id}?email=${user.emailAddresses[0]?.emailAddress}`);
-        setOrders(orders.filter(order => order._id !== id));
-        toast.success('Order deleted successfully!');
+        await axios.delete(
+          `https://backend-bf-stream.vercel.app/api/orders/${id}?email=${user.emailAddresses[0]?.emailAddress}`
+        );
+        setOrders(orders.filter((order) => order._id !== id));
+        toast.success("Order deleted successfully!");
       } else {
-        toast.error('You can only delete your own orders.');
+        toast.error("You can only delete your own orders.");
       }
     } catch (error) {
-      toast.error('Error deleting order.');
+      toast.error("Error deleting order.");
     }
   };
-
 
   if (!isLoaded || loadingOrders) {
     return <p>Loading data, please wait...</p>;
@@ -59,12 +72,13 @@ function OrdersList() {
   const sandwichTotals = {};
   let totalPrice = 0;
 
-  orders.forEach(order => {
-    order.items.forEach(item => {
+  orders.forEach((order) => {
+    order.items.forEach((item) => {
       const price = parseFloat(item.price);
       if (isNaN(price)) return;
       const sandwichKey = `${item.name} (${item.description})`;
-      sandwichTotals[sandwichKey] = (sandwichTotals[sandwichKey] || 0) + item.quantity;
+      sandwichTotals[sandwichKey] =
+        (sandwichTotals[sandwichKey] || 0) + item.quantity;
       totalPrice += item.quantity * price;
     });
   });
@@ -83,74 +97,96 @@ function OrdersList() {
       <h1>Orders List</h1>
       {error && <p>{error}</p>}
 
-      <ul className='containaer-OrderList'>
+      <ul className="containaer-OrderList">
         {orders.map((order) => (
-          <li key={order._id} className='card-OrderList'>
-            <h3>Order Name: <span className='Name'>{order.customer.name}</span></h3>
-            <p>Total: <span className='order-total'>{order.total}</span> LE <span className='included'> Delivery is not included.</span></p>
+          <li key={order._id} className="card-OrderList">
+            <h3>
+              Order Name: <span className="Name">{order.customer.name}</span>
+            </h3>
+            <p>
+              Total: <span className="order-total">{order.total}</span> LE{" "}
+              <span className="included"> Delivery is not included.</span>
+            </p>
             {order.comment && (
-              <p><strong>Comment:</strong> {order.comment}</p>
+              <p>
+                <strong>Comment:</strong> {order.comment}
+              </p>
             )}
             <h4>Items:</h4>
             <ul>
               {order.items.map((item, index) => (
-                <li key={index}>{item.name} {item.description} - {item.quantity} x {item.price} LE</li>
+                <li key={index}>
+                  {item.name} {item.description} - {item.quantity} x{" "}
+                  {item.price} LE
+                </li>
               ))}
             </ul>
-            <button className="delete-button" onClick={() => handleDelete(order._id, order.customer.email)}>
+            <button
+              className="delete-button"
+              onClick={() => handleDelete(order._id, order.customer.email)}
+            >
               <FontAwesomeIcon icon={faTrash} /> Delete
             </button>
           </li>
         ))}
       </ul>
 
-      <div className='con-totall'>
-        <div className='totall'>
+      <div className="con-totall">
+        <div className="totall">
           <h2>Sandwich Totals</h2>
           <ul>
             {Object.keys(sandwichTotals).map((sandwich, index) => (
               <li key={index}>
-                {sandwich} - {sandwichTotals[sandwich]} 
+                {sandwich} - {sandwichTotals[sandwich]}
               </li>
             ))}
           </ul>
-          <h3>Total Price of All Orders : <br /><span className='Name'>{totalPrice.toFixed(2)}</span> LE + {20} delivery = <span className='Name'>{(totalPrice + 20).toFixed(2)}</span> LE</h3>
+          <h3>
+            Total Price of All Orders : <br />
+            <span className="Name">{totalPrice.toFixed(2)}</span> LE + {20}{" "}
+            delivery ={" "}
+            <span className="Name">{(totalPrice + 20).toFixed(2)}</span> LE
+          </h3>
         </div>
       </div>
 
       <div className="con-call-to-action">
         <Link to="/dashboard">
-          <button className='btn-call-to-action'> <FontAwesomeIcon icon={faArrowLeft} /> Back to Menus</button>
+          <button className="btn-call-to-action">
+            {" "}
+            <FontAwesomeIcon icon={faArrowLeft} /> Back to Menus
+          </button>
         </Link>
+
         <div>
           <a href="tel:+201140655659" className="call-button">
-            <button ><FontAwesomeIcon icon={faPhone} /> Order The Restaurant
+            <button className="call-button">
+              <FontAwesomeIcon icon={faPhone} /> Order The Restaurant
+              <div className="checkbox-wrapper-10">
+                <input
+                  type="checkbox"
+                  id="cb5"
+                  className="tgl tgl-flip"
+                  defaultChecked
+                />
+                <label
+                  htmlFor="cb5"
+                  data-tg-on="NoT call"
+                  data-tg-off="call "
+                  className="tgl-btn"
+                ></label>
+              </div>
             </button>
           </a>
         </div>
-        <div className="checkbox-wrapper-10">
-        <input 
-          type="checkbox" 
-          id="cb5" 
-          className="tgl tgl-flip" 
-          defaultChecked 
-        />
-        <label 
-          htmlFor="cb5" 
-          data-tg-on="NoT call" 
-          data-tg-off="call " 
-          className="tgl-btn"
-        ></label>
-      </div>
       </div>
 
       <div className="footer">
         <img src={background} alt="" className="image-footer" />
       </div>
-      <ToastContainer />  
+      <ToastContainer />
     </div>
   );
 }
 
 export default OrdersList;
-
