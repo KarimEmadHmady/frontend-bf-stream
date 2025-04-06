@@ -1,21 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import App from './App.jsx';
-import Dashboard from './component/Dashboard.jsx';
-import OrdersList from './component/OrdersList.jsx';
-import './index.css';
-import { ClerkProvider } from '@clerk/clerk-react';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import App from "./App.jsx";
+import Dashboard from "./component/Dashboard.jsx";
+import OrdersList from "./component/OrdersList.jsx";
+import "./index.css";
+import { ClerkProvider } from "@clerk/clerk-react";
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 if (!PUBLISHABLE_KEY) {
-  throw new Error('Missing Publishable Key');
+  throw new Error("Missing Publishable Key");
 }
 
-const rootElement = document.getElementById('root');
+const rootElement = document.getElementById("root");
 if (!rootElement) {
-  throw new Error('Root element not found');
+  throw new Error("Root element not found");
 }
 
 ReactDOM.createRoot(rootElement).render(
@@ -29,5 +29,5 @@ ReactDOM.createRoot(rootElement).render(
         </Routes>
       </Router>
     </ClerkProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
 );

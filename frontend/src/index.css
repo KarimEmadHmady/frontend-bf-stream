@@ -1,32 +1,23 @@
-
-/* Cool infinite background scrolling animation. */
-/* Twitter: @kootoopas */
-
-/* Exo thin font from Google. */
 @import url(https://fonts.googleapis.com/css?family=Exo:100);
 
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
-/* Main styles */
 body {
- 
-  
   color: #999;
   font: 400 16px/1.5 exo, ubuntu, "segoe ui", helvetica, arial, sans-serif;
   text-align: center;
-  /* img size is 50x50 */
-  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
-  -webkit-animation: bg-scrolling-reverse 5s infinite; /* Safari 4+ */
-  -moz-animation: bg-scrolling-reverse 5s infinite; /* Fx 5+ */
-  -o-animation: bg-scrolling-reverse 5s infinite; /* Opera 12+ */
-  animation: bg-scrolling-reverse 5s infinite; /* IE 10+ */
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC")
+    repeat 0 0;
+  -webkit-animation: bg-scrolling-reverse 5s infinite;
+  -moz-animation: bg-scrolling-reverse 5s infinite;
+  -o-animation: bg-scrolling-reverse 5s infinite;
+  animation: bg-scrolling-reverse 5s infinite;
   -webkit-animation-timing-function: linear;
   -moz-animation-timing-function: linear;
   -o-animation-timing-function: linear;
   animation-timing-function: linear;
 }
 
-/* Keyframes for the animation */
 @-webkit-keyframes bg-scrolling-reverse {
   0% {
     background-position: 0 0;
@@ -78,11 +69,7 @@ button {
   cursor: pointer;
   transition: 0.5s;
   z-index: 9999999999999999999999;
- 
 }
 button:hover {
   background-color: rgb(26, 26, 26, 0.9);
 }
-
-
-

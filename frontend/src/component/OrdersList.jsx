@@ -18,6 +18,7 @@ import {
   faArrowLeft,
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
+import { URL } from "../assets/image.js";
 
 function OrdersList() {
   const [orders, setOrders] = useState([]);
@@ -30,9 +31,7 @@ function OrdersList() {
   // Function to fetch orders
   const fetchOrders = async () => {
     try {
-      const response = await axios.get(
-        "https://backend-bf-stream.vercel.app/api/orders"
-      );
+      const response = await axios.get(`${URL}/api/orders`);
       setOrders(response.data);
     } catch (error) {
       setError("Failed to fetch orders");
@@ -42,25 +41,23 @@ function OrdersList() {
     }
   };
 
-  // Fetch orders when the component mounts and set interval for re-fetching
   useEffect(() => {
-    fetchOrders(); // Fetch orders on mount
+    fetchOrders();
 
     const intervalId = setInterval(() => {
-      fetchOrders(); // Fetch orders every 10 seconds
-    }, 10000); // 10000 ms = 10 seconds
+      fetchOrders();
+    }, 10000);
 
-    return () => clearInterval(intervalId); // Cleanup interval on unmount
+    return () => clearInterval(intervalId);
   }, []);
 
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get("https://backend-bf-stream.vercel.app/api/orders");
+        const response = await axios.get(`${URL}/api/orders`);
         setOrders(response.data);
-        
-        // Fetch the current status after fetching orders
-        const statusResponse = await fetch('https://backend-bf-stream.vercel.app/api/status/current-status');
+
+        const statusResponse = await fetch(`${URL}/api/status/current-status`);
         const data = await statusResponse.json();
         setChecked(data.status);
       } catch (error) {
@@ -70,24 +67,23 @@ function OrdersList() {
         setLoadingOrders(false);
       }
     };
-  
+
     fetchOrders();
-    
-    const intervalId = setInterval(fetchOrders, 10000); // Reload every 10 seconds
-    
-    return () => clearInterval(intervalId); // Cleanup on unmount
+
+    const intervalId = setInterval(fetchOrders, 10000);
+
+    return () => clearInterval(intervalId);
   }, []);
-  
 
   // Fetch the current status when the component loads
   useEffect(() => {
     const fetchStatus = async () => {
       try {
-        const response = await fetch('https://backend-bf-stream.vercel.app/api/status/current-status');
+        const response = await fetch(`${URL}/api/status/current-status`);
         const data = await response.json();
-        setChecked(data.status); // Set the checkbox status based on the response
+        setChecked(data.status);
       } catch (error) {
-        console.error('Failed to fetch status:', error);
+        console.error("Failed to fetch status:", error);
       }
     };
 
@@ -103,7 +99,7 @@ function OrdersList() {
     try {
       if (user?.emailAddresses[0]?.emailAddress === customerEmail) {
         await axios.delete(
-          `https://backend-bf-stream.vercel.app/api/orders/${id}?email=${user.emailAddresses[0]?.emailAddress}`
+          `${URL}/api/orders/${id}?email=${user.emailAddresses[0]?.emailAddress}`
         );
         setOrders(orders.filter((order) => order._id !== id));
         toast.success("Order deleted successfully!");
@@ -140,15 +136,15 @@ function OrdersList() {
     setChecked(newStatus); // Update state immediately
 
     try {
-      await fetch('https://backend-bf-stream.vercel.app/api/status/update-status', {
-        method: 'POST',
+      await fetch(`${URL}/api/status/update-status`, {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ status: newStatus }),
       });
     } catch (error) {
-      console.error('Failed to update status:', error);
+      console.error("Failed to update status:", error);
     }
   };
 

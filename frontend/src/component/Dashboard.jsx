@@ -1,19 +1,24 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./Dashboard.css"; // Path should match the location of Dashboard.css
-import { ToastContainer, toast } from "react-toastify"; // Import toast and ToastContainer
-import "react-toastify/dist/ReactToastify.css"; // Import styles
+import "./Dashboard.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   SignedIn,
   SignedOut,
   SignInButton,
   UserButton,
-  useUser, // Import the useUser hook
+  useUser,
 } from "@clerk/clerk-react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartPlus ,faCheck, faListAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCartPlus,
+  faCheck,
+  faListAlt,
+} from "@fortawesome/free-solid-svg-icons";
 import { background, header } from "../assets/image.js";
-import { Link } from "react-router-dom"; // Import Link
+import { Link } from "react-router-dom";
+import { URL } from "../assets/image.js";
 
 const menuItems = [
   { id: 1, name: "فول", description: "شامى", price: 9 },
@@ -36,18 +41,16 @@ const menuItems = [
   { id: 18, name: "مسقعة", description: "بلدى", price: 12 },
   { id: 19, name: "جبنة", description: "شامى", price: 12 },
   { id: 20, name: "جبنة", description: "بلدى", price: 12 },
-  // Add more items if needed
 ];
 
 function Dashboard() {
-  const { user } = useUser(); // Get the current user
+  const { user } = useUser();
   const [order, setOrder] = useState([]);
   const [total, setTotal] = useState(0);
-  const [itemCount, setItemCount] = useState({}); // New state for item counts
-  const [comment, setComment] = useState(""); // New state for comment
-  const [successMessage, setSuccessMessage] = useState(""); // New state for success message
+  const [itemCount, setItemCount] = useState({});
+  const [comment, setComment] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
-  // Add item to the order
   const addItemToOrder = (item) => {
     const existingItem = order.find((orderItem) => orderItem.id === item.id);
 
@@ -77,7 +80,6 @@ function Dashboard() {
     setComment(event.target.value);
   };
 
-  // Submit the order to the backend
   const submitOrder = async () => {
     const customerEmail =
       user?.primaryEmailAddress?.emailAddress || "guest@example.com";
@@ -85,7 +87,7 @@ function Dashboard() {
     const orderData = {
       items: order,
       total: total,
-      comment: comment, // Ensure comment is included
+      comment: comment,
       customer: {
         name: user ? user.firstName : "Guest",
         email: customerEmail,
@@ -93,10 +95,7 @@ function Dashboard() {
     };
 
     try {
-      const response = await axios.post(
-        "https://backend-bf-stream.vercel.app/api/orders",
-        orderData
-      );
+      const response = await axios.post(`${URL}/api/orders`, orderData);
       setSuccessMessage("Order placed successfully!");
       toast.success("Order placed successfully!");
     } catch (error) {
@@ -131,30 +130,26 @@ function Dashboard() {
               className="button-card"
               onClick={() => addItemToOrder(item)}
             >
-             <FontAwesomeIcon icon={faCartPlus} /> Add to Order
+              <FontAwesomeIcon icon={faCartPlus} /> Add to Order
             </button>
 
-            {/* Display counter for each item */}
             {itemCount[item.id] > 0 && <p>Added: {itemCount[item.id]} times</p>}
           </div>
         ))}
       </div>
       <h2>{user ? `Order ${user.firstName}` : "Current Order"}:</h2>
-      
+
       {order.map((item, index) => (
         <div key={index}>
           <p>
-            {item.name } {item.description} - {item.quantity} x {item.price} LE
+            {item.name} {item.description} - {item.quantity} x {item.price} LE
           </p>
         </div>
       ))}
       <br />
       <h3>Total Price : {total} LE</h3>
-      
-     
 
       <div className="conta-btn-cta">
-        
         <button className="button-card" onClick={submitOrder}>
           <FontAwesomeIcon icon={faCheck} /> Place Order
         </button>
@@ -164,12 +159,9 @@ function Dashboard() {
             <FontAwesomeIcon icon={faListAlt} /> View Orders List
           </button>
         </Link>
-
       </div>
 
       <div className="footer">
-       
-
         <div className="input-group">
           <textarea
             className="input-text"
